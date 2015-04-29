@@ -4,7 +4,7 @@
 <img src="https://synergykit.blob.core.windows.net/synergykit/synergykitlogo.png" alt="Synergykit" title="Synergykit" width="33%">
 </p>
 
-<p>Backend as a Service Synergykit for <strong>fast and simple mobile/web/desktop applications development</strong>. SynergyKit allows enterpreneurs implement an idea to project fast and low cost like Lean Startup, validates and runs product.</p>
+<p>Backend as a Service SynergyKit for <strong>fast and simple mobile/web/desktop applications development</strong>. SynergyKit allows enterpreneurs implement an idea to project fast and low cost like Lean Startup, validates and runs product.</p>
 
 <p>We know how hard can be to work with untried API, so we prepared SDKs for mostly used platforms.</p>
 
@@ -22,7 +22,7 @@
 <ul>
 <li><a href="#synergykit-nodejs-sdk">SynergyKit Node.js SDK</a><ul>
 <li><a href="#sdk-installation">SDK Installation</a></li>
-<li><a href="#synergykit-initialization">Synergykit Initialization</a></li>
+<li><a href="#synergykit-initialization">SynergyKit Initialization</a></li>
 <li><a href="#documents">Documents</a><ul>
 <li><a href="#create-new-document">Create new document</a></li>
 <li><a href="#retrieve-an-existing-document-by-id">Retrieve an existing document by ID</a></li>
@@ -85,7 +85,7 @@
 
 
 
-<h2 id="synergykit-initialization">Synergykit Initialization</h2>
+<h2 id="synergykit-initialization">SynergyKKit Initialization</h2>
 
 <p>Include the module:</p>
 
@@ -93,7 +93,7 @@
 
 <pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> Synergykit = <span class="hljs-built_in">require</span>(<span class="hljs-string">"synergykit"</span>);</code></pre>
 
-<p>Than initialize SynergyKIT:</p>
+<p>Than initialize SynergyKit:</p>
 
 
 
@@ -1185,4 +1185,4 @@ mail.send({
 
 <h2 id="license">License</h2>
 
-<p>Synergykit iOS SDK is available under the MIT license. See the LICENSE file for more info.</p>
+<p>SynergyKit Node.js SDK is available under the MIT license. See the LICENSE file for more info.</p>
