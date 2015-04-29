@@ -6,7 +6,7 @@
 </p>
 
 
-Backend as a Service Synergykit for **fast and simple mobile/web/desktop applications development**. SynergyKit allows enterpreneurs implement an idea to project fast and low cost like Lean Startup, validates and runs product.
+Backend as a Service SynergyKit for **fast and simple mobile/web/desktop applications development**. SynergyKit allows enterpreneurs implement an idea to project fast and low cost like Lean Startup, validates and runs product.
 
 We know how hard can be to work with untried API, so we prepared SDKs for mostly used platforms.
 
@@ -26,13 +26,13 @@ We know how hard can be to work with untried API, so we prepared SDKs for mostly
 Use npm: $ npm install synergykit
 
 
-## Synergykit Initialization
+## SynergyKit Initialization
 Include the module:
 
 ```javascript
 var Synergykit = require("synergykit");
 ```
-Than initialize SynergyKIT:
+Than initialize SynergyKit:
 ```javascript
 Synergykit.Init(your_application_url, your_application_key, {
     debug: true // You should set it to false in production
@@ -609,4 +609,4 @@ mail.send({
 
 ## License
 
-Synergykit iOS SDK is available under the MIT license. See the LICENSE file for more info.
+SynergyKit Node.js SDK is available under the MIT license. See the LICENSE file for more info.
