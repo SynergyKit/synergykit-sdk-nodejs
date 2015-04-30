@@ -68,6 +68,21 @@
 <li><a href="#send-email">Send email</a></li>
 </ul>
 </li>
+<li><a href="#files">Files</a><ul>
+<li><a href="#upload-file">Upload file</a></li>
+<li><a href="#retrieve-file-by-id">Retrieve file by ID</a></li>
+<li><a href="#delete-file">Delete file</a></li>
+</ul>
+</li>
+<li><a href="#cloud-code">Cloud Code</a><ul>
+<li><a href="#run-cloud-code">Run cloud code</a></li>
+</ul>
+</li>
+<li><a href="#batch-request">Batch request</a><ul>
+<li><a href="#adding-to-batch">Adding to batch</a></li>
+<li><a href="#using-batch">Using batch</a></li>
+</ul>
+</li>
 <li><a href="#changelog">Changelog</a><ul>
 <li><a href="#version-214-22-4-2015">Version 2.1.4 (22. 4. 2015)</a></li>
 </ul>
@@ -1185,6 +1200,8 @@ file.upload({
     }
 })</code></pre>
 
+
+
 <h3 id="retrieve-file-by-id">Retrieve file by ID</h3>
 
 
@@ -1273,6 +1290,8 @@ Synergykit.runBatch({
 
     }
 })</code></pre>
+
+
 
 <h2 id="changelog">Changelog</h2>
 
