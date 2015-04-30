@@ -4,7 +4,7 @@
 <img src="https://synergykit.blob.core.windows.net/synergykit/synergykitlogo.png" alt="Synergykit" title="Synergykit" width="33%">
 </p>
 
-<p>Backend as a Service Synergykit for <strong>fast and simple mobile/web/desktop applications development</strong>. SynergyKit allows enterpreneurs implement an idea to project fast and low cost like Lean Startup, validates and runs product.</p>
+<p>Backend as a Service SynergyKit for <strong>fast and simple mobile/web/desktop applications development</strong>. SynergyKit allows enterpreneurs implement an idea to project fast and low cost like Lean Startup, validates and runs product.</p>
 
 <p>We know how hard can be to work with untried API, so we prepared SDKs for mostly used platforms.</p>
 
@@ -22,7 +22,7 @@
 <ul>
 <li><a href="#synergykit-nodejs-sdk">SynergyKit Node.js SDK</a><ul>
 <li><a href="#sdk-installation">SDK Installation</a></li>
-<li><a href="#synergykit-initialization">Synergykit Initialization</a></li>
+<li><a href="#synergykit-initialization">SynergyKit Initialization</a></li>
 <li><a href="#documents">Documents</a><ul>
 <li><a href="#create-new-document">Create new document</a></li>
 <li><a href="#retrieve-an-existing-document-by-id">Retrieve an existing document by ID</a></li>
@@ -79,13 +79,15 @@
 </div>
 </p>
 
+
+
 <h2 id="sdk-installation">SDK Installation</h2>
 
 <p>Use npm: $ npm install synergykit</p>
 
 
 
-<h2 id="synergykit-initialization">Synergykit Initialization</h2>
+<h2 id="synergykit-initialization">SynergyKit Initialization</h2>
 
 <p>Include the module:</p>
 
@@ -93,7 +95,7 @@
 
 <pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> Synergykit = <span class="hljs-built_in">require</span>(<span class="hljs-string">"synergykit"</span>);</code></pre>
 
-<p>Than initialize SynergyKIT:</p>
+<p>Than initialize SynergyKit:</p>
 
 
 
@@ -1163,6 +1165,115 @@ mail.send({
 
 
 
+<h2 id="files">Files</h2>
+
+<p>SynergyKit can be also used for storing as much quantity of files as you need for your application.</p>
+
+
+
+<h3 id="upload-file">Upload file</h3>
+
+
+
+<pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> file = Synergykit.File(__dirname + <span class="hljs-string">"/name_of_file.png"</span>)
+file.upload({
+    success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(file, statusCode)</span> {</span>
+        console.log(file.get())
+    },
+    error: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error, statusCode)</span> {</span>
+        console.log(error)
+    }
+})</code></pre>
+
+<h3 id="retrieve-file-by-id">Retrieve file by ID</h3>
+
+
+
+<pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> file = Synergykit.File()
+file.set(<span class="hljs-string">"_id"</span>, <span class="hljs-string">"JL08jljelr70jl"</span>)
+file.fetch({
+    success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(file, statusCode)</span> {</span>
+        console.log(file.get())
+    },
+    error: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error, statusCode)</span> {</span>
+        console.log(error)
+    }
+})</code></pre>
+
+
+
+<h3 id="delete-file">Delete file</h3>
+
+
+
+<pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> file = Synergykit.File()
+file.set(<span class="hljs-string">"_id"</span>, <span class="hljs-string">"JL08jljelr70jl"</span>)
+file.destroy({
+    success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(result, statusCode)</span> {</span>
+
+    },
+    error: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error, statusCode)</span> {</span>
+        console.log(error)
+    }
+})</code></pre>
+
+
+
+<h2 id="cloud-code">Cloud Code</h2>
+
+<p>Our vision is to let developers build any app without dealing with servers. For complex apps, sometimes you just need a bit of logic that isn’t running on a mobile device. Cloud Code makes this possible.</p>
+
+
+
+<h3 id="run-cloud-code">Run cloud code</h3>
+
+
+
+<pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> cloudCode = Synergykit.CloudCode(<span class="hljs-string">"example"</span>)
+cloudCode.set(<span class="hljs-string">"name"</span>, <span class="hljs-string">"Anakin"</span>)
+cloudCode.run({
+    success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(result, statusCode)</span> {</span>
+
+    },
+    error: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error, statusCode)</span> {</span>
+
+    }
+})</code></pre>
+
+
+
+<h2 id="batch-request">Batch request</h2>
+
+<p>To reduce the amount of time spent on network round trips, you can get, create, update, or delete up to 50 objects in one call, using the batch endpoint.</p>
+
+
+
+<h3 id="adding-to-batch">Adding to batch</h3>
+
+<p>Calling methods like <code>save</code>, <code>fetch</code>, <code>destroy</code> etc. without setting callbacks, add them to the batch buffer, where they are waiting in queue.</p>
+
+
+
+<h3 id="using-batch">Using batch</h3>
+
+
+
+<pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> gameScore = Synergykit.Data(<span class="hljs-string">"GameScore"</span>)
+gameScore.set(<span class="hljs-string">"score"</span>, <span class="hljs-number">1337</span>)
+gameScore.save()
+
+<span class="hljs-keyword">var</span> gameScore2 = Synergykit.Data(<span class="hljs-string">"GameScore"</span>)
+gameScore2.set(<span class="hljs-string">"score"</span>, <span class="hljs-number">1338</span>)
+gameScore2.save()
+Synergykit.runBatch({
+    success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(result, statusCode)</span> {</span>
+
+    },
+    error: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(error, statusCode)</span> {</span>
+
+    }
+})</code></pre>
+
 <h2 id="changelog">Changelog</h2>
 
 
@@ -1183,6 +1294,8 @@ mail.send({
 <li>Batching requests</li>
 </ul>
 
+
+
 <h2 id="license">License</h2>
 
-<p>Synergykit iOS SDK is available under the MIT license. See the LICENSE file for more info.</p>
+<p>SynergyKit Node.js SDK is available under the MIT license. See the LICENSE file for more info.</p>

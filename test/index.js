@@ -18,10 +18,7 @@ if (clientKey) {
 describe("Synergykit", function() {
     describe("Initialization", function() {
         it("should return intialization credentials", function() {
-            Synergykit.Init(TENANT, KEY, {
-                debug: false,
-                api: "http://localhost:5078"
-            })
+            Synergykit.Init(TENANT, KEY)
             assert.equal(Synergykit.tenant, TENANT)
             assert.equal(Synergykit.key, KEY)
         })

@@ -6,7 +6,7 @@
 </p>
 
 
-Backend as a Service Synergykit for **fast and simple mobile/web/desktop applications development**. SynergyKit allows enterpreneurs implement an idea to project fast and low cost like Lean Startup, validates and runs product.
+Backend as a Service SynergyKit for **fast and simple mobile/web/desktop applications development**. SynergyKit allows enterpreneurs implement an idea to project fast and low cost like Lean Startup, validates and runs product.
 
 We know how hard can be to work with untried API, so we prepared SDKs for mostly used platforms.
 
@@ -26,13 +26,13 @@ We know how hard can be to work with untried API, so we prepared SDKs for mostly
 Use npm: $ npm install synergykit
 
 
-## Synergykit Initialization
+## SynergyKit Initialization
 Include the module:
 
 ```javascript
 var Synergykit = require("synergykit");
 ```
-Than initialize SynergyKIT:
+Than initialize SynergyKit:
 ```javascript
 Synergykit.Init(your_application_url, your_application_key, {
     debug: true // You should set it to false in production
@@ -592,6 +592,95 @@ mail.send({
 })
 ```
 
+##Files
+
+SynergyKit can be also used for storing as much quantity of files as you need for your application.
+
+###Upload file
+
+```javascript
+var file = Synergykit.File(__dirname + "/name_of_file.png")
+file.upload({
+    success: function(file, statusCode) {
+        console.log(file.get())
+    },
+    error: function(error, statusCode) {
+        console.log(error)
+    }
+})
+```
+###Retrieve file by ID
+
+```javascript
+var file = Synergykit.File()
+file.set("_id", "JL08jljelr70jl")
+file.fetch({
+    success: function(file, statusCode) {
+        console.log(file.get())
+    },
+    error: function(error, statusCode) {
+        console.log(error)
+    }
+})
+```
+###Delete file
+
+```javascript
+var file = Synergykit.File()
+file.set("_id", "JL08jljelr70jl")
+file.destroy({
+    success: function(result, statusCode) {
+        
+    },
+    error: function(error, statusCode) {
+        console.log(error)
+    }
+})
+```
+##Cloud Code
+
+Our vision is to let developers build any app without dealing with servers. For complex apps, sometimes you just need a bit of logic that isn’t running on a mobile device. Cloud Code makes this possible.
+
+###Run cloud code
+
+```javascript
+var cloudCode = Synergykit.CloudCode("example")
+cloudCode.set("name", "Anakin")
+cloudCode.run({
+    success: function(result, statusCode) {
+        
+    },
+    error: function(error, statusCode) {
+        
+    }
+})
+```
+##Batch request
+To reduce the amount of time spent on network round trips, you can get, create, update, or delete up to 50 objects in one call, using the batch endpoint.
+
+###Adding to batch
+Calling methods like `save`, `fetch`, `destroy` etc. without setting callbacks, add them to the batch buffer, where they are waiting in queue.
+
+###Using batch
+
+```javascript
+var gameScore = Synergykit.Data("GameScore")
+gameScore.set("score", 1337)
+gameScore.save()
+
+var gameScore2 = Synergykit.Data("GameScore")
+gameScore2.set("score", 1338)
+gameScore2.save()
+Synergykit.runBatch({
+    success: function(result, statusCode) {
+        
+    },
+    error: function(error, statusCode) {
+    
+    }
+})
+```
+
 ## Changelog
 ### Version 2.1.4 (22. 4. 2015)
 
@@ -609,4 +698,4 @@ mail.send({
 
 ## License
 
-Synergykit iOS SDK is available under the MIT license. See the LICENSE file for more info.
+SynergyKit Node.js SDK is available under the MIT license. See the LICENSE file for more info.
