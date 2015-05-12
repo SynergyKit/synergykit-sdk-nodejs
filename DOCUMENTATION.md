@@ -23,7 +23,10 @@ We know how hard can be to work with untried API, so we prepared SDKs for mostly
 
 ## SDK Installation
 
-Use npm: $ npm install synergykit
+Use npm: 
+```text
+npm install synergykit
+```
 
 
 ## SynergyKit Initialization
@@ -32,7 +35,7 @@ Include the module:
 ```javascript
 var Synergykit = require("synergykit");
 ```
-Then initialize SynergyKit:
+Than initialize SynergyKit:
 ```javascript
 Synergykit.Init(your_application_url, your_application_key, {
     debug: true // You should set it to false in production
@@ -544,9 +547,9 @@ platform.destroy({
 ## Communication
 In SynergyKit you can communicate with your users by different ways. There are listed some methods below this section.
 
-One way is sending push notifications into user devices. This action need to have filled your API key for Android devices in Settings, section Android. For push notifications into iOS devices you need to fill your password and certificates into Apple section in Settings.
+One way is to sending push notifications into user devices. This action need to have filled your API key for Android devices in Settings, section Android. For push notifications into iOS devices you need to fill your password and certificates into Apple section in Settings.
 
-Another way is sending emails to your users. For this you need to create email templates in administration under Mailing section.
+Another way is to sending emails to your users. For this you need to create email templates in administration under Mailing section.
 
 ### Send notification
 

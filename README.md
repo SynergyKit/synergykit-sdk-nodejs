@@ -1,4 +1,4 @@
-<h1 id="synergykit-javascript-sdk">SynergyKit JavaScript SDK</h1>
+<h1 id="synergykit-nodejs-sdk">SynergyKit Node.js SDK</h1>
 
 <p align="left">
 <img src="https://synergykit.blob.core.windows.net/synergykit/synergykitlogo.png" alt="Synergykit" title="Synergykit" width="33%">
@@ -13,14 +13,15 @@
 <ul>
 <li><a href="https://github.com/SynergyKit/synergykit-sdk-android">Android SDK</a></li>
 <li><a href="https://github.com/SynergyKit/synergykit-sdk-ios">iOS SDK</a></li>
-<li><a href="https://github.com/SynergyKit/synergykit-sdk-nodejs">Node.js SDK</a></li>
+<li><a href="https://github.com/SynergyKit/synergykit-sdk-javascript">Javascript SDK</a></li>
 </ul>
 
 <p><strong>Table of content</strong></p>
 
 <p><div class="toc">
 <ul>
-<li><a href="#synergykit-javascript-sdk">SynergyKit JavaScript SDK</a><ul>
+<li><a href="#synergykit-nodejs-sdk">SynergyKit Node.js SDK</a><ul>
+<li><a href="#sdk-installation">SDK Installation</a></li>
 <li><a href="#synergykit-initialization">SynergyKit Initialization</a></li>
 <li><a href="#documents">Documents</a><ul>
 <li><a href="#create-new-document">Create new document</a></li>
@@ -95,13 +96,23 @@
 
 
 
+<h2 id="sdk-installation">SDK Installation</h2>
+
+<p>Use npm: </p>
+
+
+
+<pre class="prettyprint"><code class="language-text hljs cmake">npm <span class="hljs-keyword">install</span> synergykit</code></pre>
+
+
+
 <h2 id="synergykit-initialization">SynergyKit Initialization</h2>
 
 <p>Include the module:</p>
 
 
 
-<pre class="prettyprint"><code class="language-html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://synergykit.blob.core.windows.net/synergykit/synergykit.min.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+<pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> Synergykit = <span class="hljs-built_in">require</span>(<span class="hljs-string">"synergykit"</span>);</code></pre>
 
 <p>Than initialize SynergyKit:</p>
 
@@ -1183,8 +1194,7 @@ mail.send({
 
 
 
-<pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> input = document.getElementById(<span class="hljs-string">'fileinput'</span>);
-<span class="hljs-keyword">var</span> file = Synergykit.File(input.files[<span class="hljs-number">0</span>])
+<pre class="prettyprint"><code class="language-javascript hljs "><span class="hljs-keyword">var</span> file = Synergykit.File(__dirname + <span class="hljs-string">"/name_of_file.png"</span>)
 file.upload({
     success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(file, statusCode)</span> {</span>
         console.log(file.get())
@@ -1285,8 +1295,6 @@ Synergykit.runBatch({
     }
 })</code></pre>
 
-
-
 <h2 id="changelog">Changelog</h2>
 
 
@@ -1311,4 +1319,4 @@ Synergykit.runBatch({
 
 <h2 id="license">License</h2>
 
-<p>SynergyKit JavaScript SDK is available under the MIT license. See the LICENSE file for more info.</p>
+<p>SynergyKit Node.js SDK is available under the MIT license. See the LICENSE file for more info.</p>
