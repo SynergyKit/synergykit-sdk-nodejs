@@ -264,6 +264,23 @@ describe("Synergykit", function() {
             })
         })
     })
+    describe("GET /data?inlinecount=true", function(){
+        it("should return requested data with code 200", function(done) {
+            var gameScore = Synergykit.Data("GameScore")
+            var query = Synergykit.Query(gameScore).inlineCount()
+            query.find({
+                success: function(result, statusCode) {
+                    assert.equal(statusCode, 200)
+                    assert.equal(result.get("count"), 2)
+                    done()
+                },
+                error: function(error, statusCode) {
+                    assert.equal(statusCode, 200)
+                    done()
+                }
+            })
+        })
+    })
     describe("GET /data/:url with query", function() {
         it("should return requested data with code 200", function(done) {
             var query = Synergykit.Query(Synergykit.Data("GameScore"))
