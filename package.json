@@ -1,6 +1,6 @@
 {
   "name": "synergykit",
-  "version": "2.1.6",
+  "version": "2.1.8",
   "description": "SDK for SynergyKit",
   "main": "index.js",
   "scripts": {
@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "request": "^2.51.0",
-    "socket.io-client": "^1.3.2",
-    "underscore": "^1.7.0",
-    "urlify": "^0.3.5"
+    "underscore": "1.7.0",
+    "urlify": "^0.3.5",
+    "websocket": "1.0.19"
   }
 }

@@ -9,7 +9,7 @@ var Synergykit = require("../index"),
     USER2 = null,
     FILE = null,
     PLATFORM = null,
-    clientKey = true
+    clientKey = false
 
 if (clientKey) {
     KEY = "a03f2ee1-59e2-463d-a30b-02920075f530"
@@ -18,7 +18,11 @@ if (clientKey) {
 describe("Synergykit", function() {
     describe("Initialization", function() {
         it("should return intialization credentials", function() {
-            Synergykit.Init(TENANT, KEY)
+            Synergykit.Init(TENANT, KEY, {
+                //debug: true,
+                //api: "http://localhost:5078",
+                //socketApi: "ws://localhost:5078"
+            })
             assert.equal(Synergykit.tenant, TENANT)
             assert.equal(Synergykit.key, KEY)
         })
@@ -846,8 +850,42 @@ describe("Synergykit", function() {
             user.set("password", "test")
             user.login({
                 success: function(user, statusCode) {
+                    USER2 = user
                     assert.equal(statusCode, 200)
                     assert.equal(user.get("email"), "anakin2@skywalker.com")
+                    done()
+                },
+                error: function(error, statusCode) {
+                    assert.equal(statusCode, 200)
+                    done()
+                }
+            })
+        })
+    })
+
+    describe("POST /users/me/change-password", function() {
+        it("should change password", function(done) {
+            var user = Synergykit.User()
+            user.set("old_password", "test")
+            user.set("password", "test2")
+            user.changePassword({
+                success: function(user, statusCode) {
+                    assert.equal(statusCode, 200)
+                    done()
+                },
+                error: function(error, statusCode) {
+                    assert.equal(statusCode, 200)
+                    done()
+                }
+            })
+        })
+    })
+
+    describe("POST /users/reset-password", function() {
+        it("should reset password", function(done) {
+            USER2.resetPassword({
+                success: function(user, statusCode) {
+                    assert.equal(statusCode, 200)
                     done()
                 },
                 error: function(error, statusCode) {
