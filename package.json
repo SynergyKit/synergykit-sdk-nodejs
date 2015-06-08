@@ -1,6 +1,6 @@
 {
   "name": "synergykit",
-  "version": "2.1.13",
+  "version": "2.1.14",
   "description": "SDK for SynergyKit",
   "main": "index.js",
   "scripts": {
@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "debug": "^2.2.0",
+    "form-data": "^0.2.0",
     "nan": "^1.8.4",
-    "request": "^2.51.0",
     "typedarray-to-buffer": "^3.0.3",
     "urlify": "^0.3.5"
   }

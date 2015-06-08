@@ -19,26 +19,13 @@ describe("Synergykit", function() {
     describe("Initialization", function() {
         it("should return intialization credentials", function() {
             Synergykit.Init(TENANT, KEY, {
-                //debug: true,
+                debug: false,
+                local: true
                 //api: "http://localhost:5078",
                 //socketApi: "ws://localhost:5078"
             })
             assert.equal(Synergykit.tenant, TENANT)
             assert.equal(Synergykit.key, KEY)
-        })
-    })
-    describe("Testing API root", function() {
-        it("should return error null", function(done) {
-            Synergykit.request({}, {
-                success: function(apiDetail, statusCode) {
-                    assert.equal(apiDetail.tenant, TENANT)
-                    assert.equal(statusCode, 200)
-                    done()
-                },
-                error: function(error, statusCode) {
-                    done()
-                }
-            })
         })
     })
 
@@ -268,7 +255,7 @@ describe("Synergykit", function() {
             })
         })
     })
-    describe("GET /data?inlinecount=true", function(){
+    describe("GET /data?$inlinecount=true", function(){
         it("should return requested data with code 200", function(done) {
             var gameScore = Synergykit.Data("GameScore")
             var query = Synergykit.Query(gameScore).inlineCount()
