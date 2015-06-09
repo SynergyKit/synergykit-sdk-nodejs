@@ -1,6 +1,6 @@
 {
   "name": "synergykit",
-  "version": "2.1.14",
+  "version": "2.1.15",
   "description": "SDK for SynergyKit",
   "main": "index.js",
   "scripts": {
