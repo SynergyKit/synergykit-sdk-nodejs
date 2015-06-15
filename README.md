@@ -120,7 +120,7 @@
 
 
 
-<pre class="prettyprint"><code class="language-javascript hljs ">Synergykit.Init(your_application_url, your_application_key, {
+<pre class="prettyprint"><code class="language-javascript hljs ">Synergykit.Init(TENANT, KEY, {
     debug: <span class="hljs-literal">true</span> <span class="hljs-comment">// You should set it to false in production</span>
 });</code></pre>
 
