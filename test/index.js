@@ -34,29 +34,18 @@ describe("Synergykit", function() {
         it("should return created data with code 200 twice", function(done) {
             var gameScore = Synergykit.Data("GameScore")
             gameScore.set("score", 1337)
-            gameScore.save()
-
-            var gameScore2 = Synergykit.Data("GameScore")
-            gameScore2.set("score", 1338)
-            gameScore2.save()
-            Synergykit.runBatch({
-                success: function(result) {
-                    assert.equal(result.length, 2)
-
-                    for (var i in result) {
-                        var gameScoreResult = Synergykit.Data("GameScore")
-                        gameScoreResult.set("_id", result[i].get("_id"))
+            gameScore.save({
+                success: function(gameScoreResult) {
+                    gameScoreResult.destroy()
+                    assert.equal(gameScoreResult.get("score"), 1337)
+                    var gameScore2 = Synergykit.Data("GameScore")
+                    gameScore2.set("score", 1338)
+                    gameScore2.save(function(err, gameScoreResult) {
                         gameScoreResult.destroy()
-                    }
-                    Synergykit.runBatch({
-                        success: function(result, statusCode) {
-                            assert.equal(statusCode, 200)
-                            done()
-                        },
-                        error: function(error) {}
+                        assert.equal(gameScoreResult.get("score"), 1338)
+                        done()
                     })
-                },
-                error: function(error) {}
+                }
             })
         })
     })
@@ -272,6 +261,28 @@ describe("Synergykit", function() {
             })
         })
     })
+
+    describe("GET /data?inlinecount=true", function() {
+        it("should return requested data with code 200", function(done) {
+            var gameScore = Synergykit.Data("GameScore")
+            var query = Synergykit.Query(gameScore).inlineCount()
+            query.find()
+            query.find()
+            Synergykit.runBatch({
+                success: function(results, statusCode) {
+                    assert.equal(statusCode, 200)
+                    assert.equal(results[0].get("count"), 2)
+                    assert.equal(results[1].get("count"), 2)
+                    done()
+                },
+                error: function(error, statusCode) {
+                    assert.equal(statusCode, 200)
+                    done()
+                }
+            })
+        })
+    })
+
     describe("GET /data/:url with query", function() {
         it("should return requested data with code 200", function(done) {
             var query = Synergykit.Query(Synergykit.Data("GameScore"))
