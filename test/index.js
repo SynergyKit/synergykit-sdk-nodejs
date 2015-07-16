@@ -21,8 +21,6 @@ describe("Synergykit", function() {
             Synergykit.Init(TENANT, KEY, {
                 debug: false,
                 local: true
-                //api: "http://localhost:5078",
-                //socketApi: "ws://localhost:5078"
             })
             assert.equal(Synergykit.tenant, TENANT)
             assert.equal(Synergykit.key, KEY)
