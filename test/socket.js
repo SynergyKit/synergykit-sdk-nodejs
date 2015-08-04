@@ -16,8 +16,7 @@ describe("Synergykit", function() {
         it("should return intialization credentials", function() {
             Synergykit.Init(TENANT, KEY, {
                 debug: true,
-                local: true,
-                strategy: "sockets"
+                local: true
             })
             assert.equal(Synergykit.tenant, TENANT)
             assert.equal(Synergykit.key, KEY)

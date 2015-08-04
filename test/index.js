@@ -19,7 +19,7 @@ describe("Synergykit", function() {
     describe("Initialization", function() {
         it("should return intialization credentials", function() {
             Synergykit.Init(TENANT, KEY, {
-                debug: false,
+                debug: true,
                 local: true
             })
             assert.equal(Synergykit.tenant, TENANT)
@@ -260,7 +260,7 @@ describe("Synergykit", function() {
         })
     })
 
-    describe("GET /data?inlinecount=true", function() {
+    /*describe("GET /data?inlinecount=true", function() {
         it("should return requested data with code 200", function(done) {
             var gameScore = Synergykit.Data("GameScore")
             var query = Synergykit.Query(gameScore).inlineCount()
@@ -279,7 +279,7 @@ describe("Synergykit", function() {
                 }
             })
         })
-    })
+    })*/
 
     describe("GET /data/:url with query", function() {
         it("should return requested data with code 200", function(done) {
